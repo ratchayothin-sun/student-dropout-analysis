@@ -1,0 +1,5 @@
+rule,flagged_students,flagged_share_pct,precision_pct,recall_pct
+Tuition fees not up to date,528,11.9,86.6,32.2
+Sem 1: ≤2 units approved,1005,22.7,77.1,54.5
+Either of the above,1258,28.4,76.7,67.9
+"Either, or Sem 2: ≤2 units approved",1456,32.9,74.6,76.4

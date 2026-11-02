@@ -1,0 +1,9 @@
+factor,dropout_rate_if_1_pct,dropout_rate_if_0_pct,diff_pp,chi2_p_value
+Tuition fees up to date,24.7,86.6,-61.8,3.327427731275458e-179
+Debtor,62.0,28.3,33.7,1.4430159800207284e-52
+Scholarship holder,12.2,38.7,-26.5,7.199903789531474e-60
+Male,45.1,25.1,19.9,6.23915001285147e-42
+Displaced,27.6,37.6,-10.1,9.86587763040649e-13
+Daytime attendance,30.8,42.9,-12.1,8.59227514692058e-08
+International,29.1,32.2,-3.1,0.49078969568460307
+Special needs,33.3,32.1,1.2,0.8519671291409596

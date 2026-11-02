@@ -1,0 +1,207 @@
+{
+  "data_quality": {
+    "rows": 4424,
+    "columns": 35,
+    "missing_cells": 0,
+    "duplicate_rows": 0,
+    "target_counts": {
+      "Graduate": 2209,
+      "Dropout": 1421,
+      "Enrolled": 794
+    },
+    "dropout_rate_pct": 32.1,
+    "evening_course_codes": [
+      3,
+      17
+    ],
+    "s1_no_units_enrolled": 180,
+    "s2_no_units_enrolled": 180,
+    "no_units_same_students_both_sems": true,
+    "age_min_max": [
+      17,
+      70
+    ],
+    "approved_gt_enrolled_s1": 0,
+    "approved_gt_enrolled_s2": 0
+  },
+  "macro": {
+    "distinct_combinations": 10,
+    "corr_with_dropout": {
+      "unemployment": 0.013,
+      "inflation": 0.028,
+      "gdp": -0.046
+    }
+  },
+  "stage_models": [
+    {
+      "stage": "Background only (at enrollment)",
+      "n_features": 16,
+      "cv_auc": 0.752,
+      "cv_auc_sd": 0.008,
+      "cv_auc_dropout_vs_graduate": 0.773
+    },
+    {
+      "stage": "+ Financial status",
+      "n_features": 19,
+      "cv_auc": 0.822,
+      "cv_auc_sd": 0.007,
+      "cv_auc_dropout_vs_graduate": 0.848
+    },
+    {
+      "stage": "+ Semester 1 results",
+      "n_features": 26,
+      "cv_auc": 0.902,
+      "cv_auc_sd": 0.01,
+      "cv_auc_dropout_vs_graduate": 0.936
+    },
+    {
+      "stage": "+ Semester 2 results",
+      "n_features": 33,
+      "cv_auc": 0.923,
+      "cv_auc_sd": 0.008,
+      "cv_auc_dropout_vs_graduate": 0.955
+    }
+  ],
+  "top_single_features": [
+    {
+      "feature": "s2_rate",
+      "group": "Semester 2",
+      "cv_auc": 0.887,
+      "cv_auc_sd": 0.01
+    },
+    {
+      "feature": "s2_approved",
+      "group": "Semester 2",
+      "cv_auc": 0.86,
+      "cv_auc_sd": 0.009
+    },
+    {
+      "feature": "s1_rate",
+      "group": "Semester 1",
+      "cv_auc": 0.853,
+      "cv_auc_sd": 0.018
+    },
+    {
+      "feature": "s1_approved",
+      "group": "Semester 1",
+      "cv_auc": 0.826,
+      "cv_auc_sd": 0.012
+    },
+    {
+      "feature": "s2_grade",
+      "group": "Semester 2",
+      "cv_auc": 0.82,
+      "cv_auc_sd": 0.01
+    },
+    {
+      "feature": "s1_grade",
+      "group": "Semester 1",
+      "cv_auc": 0.781,
+      "cv_auc_sd": 0.012
+    },
+    {
+      "feature": "s2_evaluations",
+      "group": "Semester 2",
+      "cv_auc": 0.698,
+      "cv_auc_sd": 0.01
+    },
+    {
+      "feature": "s1_evaluations",
+      "group": "Semester 1",
+      "cv_auc": 0.675,
+      "cv_auc_sd": 0.018
+    },
+    {
+      "feature": "age",
+      "group": "Background",
+      "cv_auc": 0.672,
+      "cv_auc_sd": 0.01
+    },
+    {
+      "feature": "application_mode",
+      "group": "Background",
+      "cv_auc": 0.666,
+      "cv_auc_sd": 0.016
+    }
+  ],
+  "adjusted_odds_ratios": [
+    {
+      "predictor": "Tuition fees not up to date",
+      "odds_ratio": 9.76,
+      "ci_low": 7.21,
+      "ci_high": 14.35
+    },
+    {
+      "predictor": "Debtor",
+      "odds_ratio": 1.44,
+      "ci_low": 1.06,
+      "ci_high": 2.05
+    },
+    {
+      "predictor": "Scholarship holder",
+      "odds_ratio": 0.62,
+      "ci_low": 0.46,
+      "ci_high": 0.8
+    },
+    {
+      "predictor": "Male",
+      "odds_ratio": 1.42,
+      "ci_low": 1.16,
+      "ci_high": 1.75
+    },
+    {
+      "predictor": "Aged 23+ at enrollment",
+      "odds_ratio": 2.41,
+      "ci_low": 1.88,
+      "ci_high": 3.14
+    },
+    {
+      "predictor": "Displaced",
+      "odds_ratio": 1.28,
+      "ci_low": 1.06,
+      "ci_high": 1.56
+    },
+    {
+      "predictor": "Sem 1 approval rate (per +10 pp)",
+      "odds_ratio": 0.88,
+      "ci_low": 0.84,
+      "ci_high": 0.93
+    },
+    {
+      "predictor": "Sem 2 approval rate (per +10 pp)",
+      "odds_ratio": 0.67,
+      "ci_low": 0.64,
+      "ci_high": 0.7
+    }
+  ],
+  "early_warning_rules": [
+    {
+      "rule": "Tuition fees not up to date",
+      "flagged_students": 528,
+      "flagged_share_pct": 11.9,
+      "precision_pct": 86.6,
+      "recall_pct": 32.2
+    },
+    {
+      "rule": "Sem 1: ≤2 units approved",
+      "flagged_students": 1005,
+      "flagged_share_pct": 22.7,
+      "precision_pct": 77.1,
+      "recall_pct": 54.5
+    },
+    {
+      "rule": "Either of the above",
+      "flagged_students": 1258,
+      "flagged_share_pct": 28.4,
+      "precision_pct": 76.7,
+      "recall_pct": 67.9
+    },
+    {
+      "rule": "Either, or Sem 2: ≤2 units approved",
+      "flagged_students": 1456,
+      "flagged_share_pct": 32.9,
+      "precision_pct": 74.6,
+      "recall_pct": 76.4
+    }
+  ]
+}

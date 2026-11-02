@@ -1,0 +1,37 @@
+feature,group,cv_auc,cv_auc_sd
+s2_rate,Semester 2,0.887,0.01
+s2_approved,Semester 2,0.86,0.009
+s1_rate,Semester 1,0.853,0.018
+s1_approved,Semester 1,0.826,0.012
+s2_grade,Semester 2,0.82,0.01
+s1_grade,Semester 1,0.781,0.012
+s2_evaluations,Semester 2,0.698,0.01
+s1_evaluations,Semester 1,0.675,0.018
+age,Background,0.672,0.01
+application_mode,Background,0.666,0.016
+course,Background,0.651,0.017
+tuition_ok,Financial,0.649,0.013
+s1_enrolled,Semester 1,0.619,0.01
+scholarship,Financial,0.614,0.014
+s2_enrolled,Semester 2,0.611,0.016
+male,Background,0.604,0.007
+mother_qual,Background,0.585,0.019
+father_qual,Background,0.579,0.017
+debtor,Financial,0.578,0.011
+prev_qualification,Background,0.568,0.007
+father_occ,Background,0.563,0.007
+displaced,Background,0.557,0.01
+mother_occ,Background,0.556,0.018
+application_order,Background,0.542,0.015
+marital_status,Background,0.538,0.006
+inflation,Economy,0.535,0.018
+gdp,Economy,0.533,0.009
+unemployment,Economy,0.533,0.009
+daytime,Background,0.527,0.016
+s1_credited,Semester 1,0.519,0.006
+s2_without_eval,Semester 2,0.517,0.007
+s1_without_eval,Semester 1,0.516,0.005
+international,Background,0.502,0.003
+nationality,Background,0.5,0.005
+special_needs,Background,0.497,0.003
+s2_credited,Semester 2,0.495,0.012

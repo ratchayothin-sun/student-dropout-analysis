@@ -1,0 +1,52 @@
+factor,level,n,dropouts,dropout_rate_pct
+Tuition fees up to date,Yes,3896,964,24.7
+Tuition fees up to date,No,528,457,86.6
+Debtor,No,3921,1109,28.3
+Debtor,Yes,503,312,62.0
+Scholarship holder,Yes,1099,134,12.2
+Scholarship holder,No,3325,1287,38.7
+Gender,Female,2868,720,25.1
+Gender,Male,1556,701,45.1
+Age at enrollment,≤19,1952,409,21.0
+Age at enrollment,20–22,1095,284,25.9
+Age at enrollment,23–25,332,144,43.4
+Age at enrollment,26–30,383,229,59.8
+Age at enrollment,31–40,437,241,55.1
+Age at enrollment,41+,225,114,50.7
+Displaced,No,1998,752,37.6
+Displaced,Yes,2426,669,27.6
+Daytime attendance,Daytime,3941,1214,30.8
+Daytime attendance,Evening,483,207,42.9
+International,No,4314,1389,32.2
+International,Yes,110,32,29.1
+Special needs,No,4373,1404,32.1
+Special needs,Yes,51,17,33.3
+Sem 1 approval rate,No units enrolled,180,77,42.8
+Sem 1 approval rate,0%,538,493,91.6
+Sem 1 approval rate,1–49%,310,226,72.9
+Sem 1 approval rate,50–74%,606,291,48.0
+Sem 1 approval rate,75–99%,1062,183,17.2
+Sem 1 approval rate,100%,1728,151,8.7
+Sem 2 approval rate,No units enrolled,180,77,42.8
+Sem 2 approval rate,0%,690,650,94.2
+Sem 2 approval rate,1–49%,344,226,65.7
+Sem 2 approval rate,50–74%,583,232,39.8
+Sem 2 approval rate,75–99%,1038,142,13.7
+Sem 2 approval rate,100%,1589,94,5.9
+Course,Biofuel Production Technologies,12,8,66.7
+Course,Animation & Multimedia Design,215,82,38.1
+Course,Social Service (evening),215,71,33.0
+Course,Agronomy,210,86,41.0
+Course,Communication Design,226,51,22.6
+Course,Veterinary Nursing,337,90,26.7
+Course,Informatics Engineering,170,92,54.1
+Course,Equinculture,141,78,55.3
+Course,Management,380,134,35.3
+Course,Social Service,355,65,18.3
+Course,Tourism,252,96,38.1
+Course,Nursing,766,118,15.4
+Course,Oral Hygiene,86,33,38.4
+Course,Advertising & Marketing Mgmt,268,95,35.4
+Course,Journalism & Communication,331,101,30.5
+Course,Basic Education,192,85,44.3
+Course,Management (evening),268,136,50.7

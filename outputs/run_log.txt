@@ -1,0 +1,122 @@
+== Data quality ==
+{
+  "rows": 4424,
+  "columns": 35,
+  "missing_cells": 0,
+  "duplicate_rows": 0,
+  "target_counts": {
+    "Graduate": 2209,
+    "Dropout": 1421,
+    "Enrolled": 794
+  },
+  "dropout_rate_pct": 32.1,
+  "evening_course_codes": [
+    3,
+    17
+  ],
+  "s1_no_units_enrolled": 180,
+  "s2_no_units_enrolled": 180,
+  "no_units_same_students_both_sems": true,
+  "age_min_max": [
+    17,
+    70
+  ],
+  "approved_gt_enrolled_s1": 0,
+  "approved_gt_enrolled_s2": 0
+}
+
+== Dropout rate by factor (% of all students) ==
+                 factor             level    n  dropouts  dropout_rate_pct
+Tuition fees up to date               Yes 3896       964              24.7
+Tuition fees up to date                No  528       457              86.6
+                 Debtor                No 3921      1109              28.3
+                 Debtor               Yes  503       312              62.0
+     Scholarship holder               Yes 1099       134              12.2
+     Scholarship holder                No 3325      1287              38.7
+                 Gender            Female 2868       720              25.1
+                 Gender              Male 1556       701              45.1
+      Age at enrollment               ≤19 1952       409              21.0
+      Age at enrollment             20–22 1095       284              25.9
+      Age at enrollment             23–25  332       144              43.4
+      Age at enrollment             26–30  383       229              59.8
+      Age at enrollment             31–40  437       241              55.1
+      Age at enrollment               41+  225       114              50.7
+              Displaced                No 1998       752              37.6
+              Displaced               Yes 2426       669              27.6
+     Daytime attendance           Daytime 3941      1214              30.8
+     Daytime attendance           Evening  483       207              42.9
+          International                No 4314      1389              32.2
+          International               Yes  110        32              29.1
+          Special needs                No 4373      1404              32.1
+          Special needs               Yes   51        17              33.3
+    Sem 1 approval rate No units enrolled  180        77              42.8
+    Sem 1 approval rate                0%  538       493              91.6
+    Sem 1 approval rate             1–49%  310       226              72.9
+    Sem 1 approval rate            50–74%  606       291              48.0
+    Sem 1 approval rate            75–99% 1062       183              17.2
+    Sem 1 approval rate              100% 1728       151               8.7
+    Sem 2 approval rate No units enrolled  180        77              42.8
+    Sem 2 approval rate                0%  690       650              94.2
+    Sem 2 approval rate             1–49%  344       226              65.7
+    Sem 2 approval rate            50–74%  583       232              39.8
+    Sem 2 approval rate            75–99% 1038       142              13.7
+    Sem 2 approval rate              100% 1589        94               5.9
+
+== Binary factor tests ==
+                 factor  dropout_rate_if_1_pct  dropout_rate_if_0_pct  diff_pp  chi2_p_value
+Tuition fees up to date                   24.7                   86.6    -61.8 3.327428e-179
+                 Debtor                   62.0                   28.3     33.7  1.443016e-52
+     Scholarship holder                   12.2                   38.7    -26.5  7.199904e-60
+                   Male                   45.1                   25.1     19.9  6.239150e-42
+              Displaced                   27.6                   37.6    -10.1  9.865878e-13
+     Daytime attendance                   30.8                   42.9    -12.1  8.592275e-08
+          International                   29.1                   32.2     -3.1  4.907897e-01
+          Special needs                   33.3                   32.1      1.2  8.519671e-01
+
+== Macro ==
+{'distinct_combinations': 10, 'corr_with_dropout': {'unemployment': 0.013, 'inflation': 0.028, 'gdp': -0.046}}
+
+== Single-feature CV AUC (top 15) ==
+         feature      group  cv_auc  cv_auc_sd
+         s2_rate Semester 2   0.887      0.010
+     s2_approved Semester 2   0.860      0.009
+         s1_rate Semester 1   0.853      0.018
+     s1_approved Semester 1   0.826      0.012
+        s2_grade Semester 2   0.820      0.010
+        s1_grade Semester 1   0.781      0.012
+  s2_evaluations Semester 2   0.698      0.010
+  s1_evaluations Semester 1   0.675      0.018
+             age Background   0.672      0.010
+application_mode Background   0.666      0.016
+          course Background   0.651      0.017
+      tuition_ok  Financial   0.649      0.013
+     s1_enrolled Semester 1   0.619      0.010
+     scholarship  Financial   0.614      0.014
+     s2_enrolled Semester 2   0.611      0.016
+
+== Stage-wise models (5-fold CV AUC) ==
+                          stage  n_features  cv_auc  cv_auc_sd  cv_auc_dropout_vs_graduate
+Background only (at enrollment)          16   0.752      0.008                       0.773
+             + Financial status          19   0.822      0.007                       0.848
+           + Semester 1 results          26   0.902      0.010                       0.936
+           + Semester 2 results          33   0.923      0.008                       0.955
+
+== Adjusted odds ratios (course-adjusted) ==
+                       predictor  odds_ratio  ci_low  ci_high
+     Tuition fees not up to date        9.76    7.21    14.35
+                          Debtor        1.44    1.06     2.05
+              Scholarship holder        0.62    0.46     0.80
+                            Male        1.42    1.16     1.75
+          Aged 23+ at enrollment        2.41    1.88     3.14
+                       Displaced        1.28    1.06     1.56
+Sem 1 approval rate (per +10 pp)        0.88    0.84     0.93
+Sem 2 approval rate (per +10 pp)        0.67    0.64     0.70
+
+== Early-warning rules ==
+                               rule  flagged_students  flagged_share_pct  precision_pct  recall_pct
+        Tuition fees not up to date               528               11.9           86.6        32.2
+           Sem 1: ≤2 units approved              1005               22.7           77.1        54.5
+                Either of the above              1258               28.4           76.7        67.9
+Either, or Sem 2: ≤2 units approved              1456               32.9           74.6        76.4
+
+Done. Figures -> /home/claude/student-dropout-analysis/figures | tables -> /home/claude/student-dropout-analysis/outputs

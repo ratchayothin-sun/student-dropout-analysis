@@ -1,0 +1,5 @@
+stage,n_features,cv_auc,cv_auc_sd,cv_auc_dropout_vs_graduate
+Background only (at enrollment),16,0.752,0.008,0.773
++ Financial status,19,0.822,0.007,0.848
++ Semester 1 results,26,0.902,0.01,0.936
++ Semester 2 results,33,0.923,0.008,0.955

@@ -1,0 +1,9 @@
+predictor,odds_ratio,ci_low,ci_high
+Tuition fees not up to date,9.76,7.21,14.35
+Debtor,1.44,1.06,2.05
+Scholarship holder,0.62,0.46,0.8
+Male,1.42,1.16,1.75
+Aged 23+ at enrollment,2.41,1.88,3.14
+Displaced,1.28,1.06,1.56
+Sem 1 approval rate (per +10 pp),0.88,0.84,0.93
+Sem 2 approval rate (per +10 pp),0.67,0.64,0.7
